@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yehia Kamal El-Din — Chief Accountant</title>
+<link rel="icon" type="image/svg+xml" href="assets/mark-cut.svg" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<style>
+  :root{
+    --obs:#0A0D17; --obs-card:#161B2B; --obs-raised:#1F2638;
+    --gold:#D9BE7E; --gold-deep:#B68F42;
+    --text-100:#EEF1F8; --text-200:#C7CEDC; --muted:#8A93A8; --faint:#5A6378;
+    --line-soft:rgba(255,255,255,.08); --line-gold:rgba(217,190,126,.22);
+    --gold-grad:linear-gradient(135deg,#F6E7B6 0%,#E0C684 45%,#B68F42 100%);
+    --font-display:'Cormorant Garamond',Georgia,serif;
+    --font-sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+    --shadow-md:0 12px 30px -8px rgba(0,0,0,.5); --shadow-lg:0 24px 60px -16px rgba(0,0,0,.62);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-sans);background:var(--obs);color:var(--text-200);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .gold{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .kicker{font-family:var(--font-sans);font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,13,23,.72);border-bottom:1px solid var(--line-gold)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-size:1.3rem;color:var(--text-100);letter-spacing:.3px}
+  .links{display:flex;gap:30px}
+  .links a{font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s var(--ease)}
+  .links a:hover{color:var(--gold)}
+  @media(max-width:880px){.links{display:none}}
+
+  header.hero{position:relative;text-align:center;padding:104px 0 92px;overflow:hidden}
+  header.hero::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(circle at 50% 40%,#11162a 0%,transparent 62%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .avatar{width:160px;height:160px;border-radius:50%;margin:0 auto 30px;padding:4px;background:var(--gold-grad);box-shadow:var(--shadow-lg)}
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--obs)}
+  .hero h1{font-family:var(--font-display);font-weight:500;font-size:clamp(2.8rem,6vw,4.4rem);line-height:1.02;color:var(--text-100);letter-spacing:.5px}
+  .hero h1 .ln2{display:block}
+  .hero .role{margin-top:18px}
+  .hero .loc{font-family:var(--font-mono);font-size:.82rem;color:var(--muted);margin-top:14px;letter-spacing:.02em}
+  .hero p.lead{font-family:var(--font-display);font-style:italic;font-size:1.35rem;line-height:1.5;color:var(--text-200);max-width:660px;margin:26px auto 0}
+  .cta{margin-top:38px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{font-family:var(--font-sans);font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:14px 30px;border-radius:4px;cursor:pointer;transition:transform .28s var(--ease),box-shadow .28s var(--ease);border:1px solid transparent;display:inline-block}
+  .btn.primary{background:var(--gold-grad);color:#0A0D17}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px -8px rgba(184,143,66,.45)}
+  .btn.ghost{background:var(--obs-card);border-color:var(--line-soft);color:var(--text-200)}
+  .btn.ghost:hover{transform:translateY(-2px);color:var(--gold);border-color:var(--gold)}
+
+  section{padding:90px 0;border-top:1px solid var(--line-soft)}
+  .section-head{text-align:center;margin-bottom:56px}
+  .section-head h2{font-family:var(--font-display);font-weight:500;font-size:2.6rem;color:var(--text-100);margin-top:10px;letter-spacing:.4px}
+
+  .about{display:grid;grid-template-columns:1.25fr 1fr;gap:54px;align-items:center}
+  .about p{color:var(--text-200);margin-bottom:16px}
+  .about p+p{font-size:.97rem;color:var(--muted)}
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .fact{background:var(--obs-card);border:1px solid var(--line-gold);border-radius:8px;padding:22px 18px;text-align:center}
+  .fact .n{font-family:var(--font-display);font-size:2.1rem;color:var(--gold);line-height:1}
+  .fact .l{font-family:var(--font-sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  @media(max-width:820px){.about{grid-template-columns:1fr;gap:36px}}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+  .skill{background:var(--obs-card);border:1px solid var(--line-soft);border-radius:8px;padding:24px 20px;transition:transform .28s var(--ease),border-color .28s var(--ease)}
+  .skill:hover{transform:translateY(-3px);border-color:var(--line-gold)}
+  .skill .ic{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:16px}
+  .skill .ic svg{width:20px;height:20px}
+  .skill .nm{font-family:var(--font-display);font-size:1.18rem;color:var(--text-100);line-height:1.2}
+  .skill .lv{font-family:var(--font-mono);font-size:.7rem;color:var(--faint);margin-top:6px;letter-spacing:.04em}
+
+  .timeline{position:relative;max-width:840px;margin:0 auto;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--gold),var(--gold-deep))}
+  .tl-item{position:relative;margin-bottom:38px}
+  .tl-item::before{content:"";position:absolute;left:-34px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold-grad);box-shadow:0 0 0 4px var(--obs)}
+  .tl-item .when{font-family:var(--font-mono);font-size:.72rem;color:var(--gold);letter-spacing:.04em}
+  .tl-item h4{font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--text-100);margin:3px 0}
+  .tl-item .org{font-size:.9rem;color:var(--muted)}
+  .tl-item ul{margin:12px 0 0 18px;color:var(--text-200);font-size:.92rem}
+  .tl-item ul li{margin-bottom:5px}
+
+  .sub-head{text-align:center;margin:0 0 26px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-bottom:40px}
+  .cert{background:var(--obs-card);border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .28s var(--ease),border-color .28s var(--ease),box-shadow .28s var(--ease)}
+  .cert:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:var(--shadow-md)}
+  .cert .thumb{height:175px;background:#fff;overflow:hidden}
+  .cert .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .cert .cap{padding:13px 15px;font-family:var(--font-display);font-size:1.02rem;color:var(--text-100)}
+  .cert .cap small{display:block;font-family:var(--font-mono);font-size:.66rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
+
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto}
+  @media(max-width:820px){.edu-grid{grid-template-columns:1fr}}
+  .panel{background:var(--obs-card);border:1px solid var(--line-gold);border-radius:10px;padding:30px}
+  .panel h3{font-family:var(--font-sans);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .panel h3 svg{width:18px;height:18px}
+  .panel ul{list-style:none}
+  .panel ul li{padding:12px 0;border-bottom:1px solid var(--line-soft)}
+  .panel ul li:last-child{border-bottom:0}
+  .panel ul li strong{display:block;font-family:var(--font-display);font-size:1.12rem;font-weight:500;color:var(--text-100)}
+  .panel ul li span{font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.03em}
+
+  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:760px;margin:0 auto}
+  .doc-card{display:flex;align-items:center;gap:18px;background:var(--obs-card);border:1px solid var(--line-gold);border-radius:10px;padding:22px 24px;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+  .doc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .doc-ic{width:50px;height:50px;border-radius:8px;border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);flex:0 0 auto}
+  .doc-ic svg{width:22px;height:22px}
+  .doc-name{font-family:var(--font-display);font-size:1.25rem;color:var(--text-100)}
+  .doc-sub{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);margin-top:2px;letter-spacing:.05em}
+  .doc-dl{margin-left:auto;color:var(--gold)}
+
+  .contact{text-align:center}
+  .contact p{font-family:var(--font-display);font-style:italic;font-size:1.25rem;color:var(--text-200);max-width:540px;margin:0 auto 30px}
+  .contact .v{font-family:var(--font-mono);font-size:.9rem;color:var(--text-100);margin:6px 0}
+  .socials{display:flex;gap:16px;justify-content:center;margin-top:30px}
+  .soc{width:52px;height:52px;border-radius:8px;border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:transform .28s var(--ease),background .28s var(--ease)}
+  .soc:hover{transform:translateY(-3px);background:rgba(217,190,126,.08)}
+  .soc svg{width:20px;height:20px}
+
+  footer{border-top:1px solid var(--line-gold);padding:34px 0;text-align:center}
+  footer .fmark{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-display);color:var(--text-100);font-size:1.1rem}
+  footer .fline{font-family:var(--font-mono);font-size:.7rem;color:var(--faint);margin-top:10px;letter-spacing:.08em}
+
+  .lb{position:fixed;inset:0;background:rgba(5,7,13,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:88vh;border-radius:6px;box-shadow:var(--shadow-lg)}
+  .lb button{position:absolute;background:rgba(217,190,126,.1);border:1px solid var(--line-gold);color:var(--gold);cursor:pointer;border-radius:6px}
+  .lb .close{top:22px;right:26px;width:44px;height:44px;font-size:1.4rem}
+  .lb .nav-btn{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.6rem}
+  .lb .prev{left:22px}.lb .next{right:22px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg width="28" height="28" viewBox="0 0 200 200" fill="none" aria-hidden="true"><defs><linearGradient id="ng" x1="50" y1="22" x2="150" y2="178" gradientUnits="userSpaceOnUse"><stop stop-color="#F6E7B6"/><stop offset=".5" stop-color="#E0C684"/><stop offset="1" stop-color="#B68F42"/></linearGradient></defs><g stroke="url(#ng)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M100 22 L162 86 L100 178 L38 86 Z"/><path d="M72 86 L100 50 L128 86"/><path d="M100 86 V178"/><path d="M100 112 L150 94"/></g></svg>
+      <span>Yehia Kamal</span>
+    </a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#documents">Documents</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="avatar"><img src="assets/profile.jpg" alt="Yehia Kamal El-Din" /></div>
+    <h1>Yehia Kamal <span class="ln2 gold">El-Din</span></h1>
+    <div class="role"><span class="kicker">Chief Accountant</span></div>
+    <div class="loc">RIYADH · SAUDI ARABIA</div>
+    <p class="lead">Turning complex financials into clear, compliant, decision-ready reporting.</p>
+    <div class="cta">
+      <a href="#contact" class="btn primary">Contact us</a>
+      <a href="#experience" class="btn ghost">Work Experience</a>
+      <a href="#documents" class="btn ghost">Résumé</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Profile</span><h2>About</h2></div>
+    <div class="about">
+      <div class="reveal">
+        <p>An experienced Chief Accountant with over twelve years of professional expertise across financial accounting, construction and contracting, hospitality, and engineering-consultancy services in Saudi Arabia, Egypt, and Kuwait.</p>
+        <p>Skilled in preparing journal entries, closing accounts and budgets, generating financial reports, analysing revenues and expenses, managing payroll, monitoring receivables and payables, and supervising accounting teams — with strong command of Saudi government and electronic systems, including ZATCA, Muqeem, Mudad, and Qiwa.</p>
+      </div>
+      <div class="reveal">
+        <div class="facts">
+          <div class="fact"><div class="n">12+</div><div class="l">Years experience</div></div>
+          <div class="fact"><div class="n">03</div><div class="l">Countries</div></div>
+          <div class="fact"><div class="n">04</div><div class="l">Sectors</div></div>
+          <div class="fact"><div class="n">SOCPA</div><div class="l">Registered</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Capabilities</span><h2>Expertise &amp; Platforms</h2></div>
+    <div class="skills-grid">
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="nm">Financial Reporting &amp; Analysis</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="nm">QuickBooks &amp; Peachtree</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div><div class="nm">ZATCA · Tax &amp; Zakat</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div><div class="nm">Payroll — Mudad</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M14 8h4M14 12h4M6 15.5h12"/></svg></div><div class="nm">Muqeem &amp; Qiwa Platforms</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><div class="nm">Budgeting &amp; Closing</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2"/><path d="M12 13v3"/></svg></div><div class="nm">Al-Rajhi &amp; Absher Business</div><div class="lv">ADVANCED</div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="nm">Team Leadership</div><div class="lv">ADVANCED</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Career</span><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="when">NOV 2021 — PRESENT</div>
+        <h4>Chief Accountant</h4>
+        <div class="org">Saad Ali Falah Al-Mutairi Engineering Consulting Office — Saudi Arabia</div>
+        <ul>
+          <li>Prepare revenue &amp; expense reports and analyse financial performance for management.</li>
+          <li>Participate in tender cost calculation and review the financial aspects of bids.</li>
+          <li>Supervise all accounting tasks, including tax filings and statutory obligations.</li>
+          <li>Oversee payroll transfers and close budgets and final accounts to standard.</li>
+          <li>Coordinate with external audit offices to approve finalised statements.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">AUG 2018 — SEP 2021</div>
+        <h4>Chief Accountant</h4>
+        <div class="org">Al-Mandaryah Contracting &amp; Environmental Services Co. — Saudi Arabia</div>
+        <ul>
+          <li>Supervised all accounting operations according to company policy.</li>
+          <li>Monitored project &amp; site accounting and ensured internal compliance.</li>
+          <li>Prepared and reviewed periodic reports for senior management.</li>
+          <li>Coordinated with departments and audit offices for accuracy.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">JUL 2017 — JUN 2018</div>
+        <h4>Chief Accountant</h4>
+        <div class="org">Wahaj Boulevard Hotel — Kuwait</div>
+        <ul>
+          <li>Managed the accounting team and monitored daily operations.</li>
+          <li>Supervised daily revenue reports and cash transactions.</li>
+          <li>Verified cash revenues and financial reconciliations.</li>
+          <li>Closed budgets and final accounts; coordinated external audits.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">AUG 2013 — MAY 2017</div>
+        <h4>Accountant → Chief Accountant → Branch Manager</h4>
+        <div class="org">Al-Mandaryah Contracting &amp; Environmental Services Co. — Saudi Arabia</div>
+        <ul>
+          <li>Managed full site accounting and daily financial operations.</li>
+          <li>Processed contracts and reviewed contractor extracts for accuracy.</li>
+          <li>Promoted to Chief Accountant of the Services Branch and Branch Manager in Turaif.</li>
+          <li>Prepared aging reports and secured new contracts to maintain revenue.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">JUN 2012 — JUN 2013</div>
+        <h4>Sales, Revenue &amp; Payroll Accountant</h4>
+        <div class="org">Feedmix Egypt for Animal Feed Manufacturing — Egypt</div>
+        <ul>
+          <li>Managed sales and payroll accounts and daily financial operations.</li>
+          <li>Prepared reports on sales, customers, and debts.</li>
+          <li>Entered invoices and direct expenses; reviewed payroll and balances.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">JAN 2012 — MAY 2012</div>
+        <h4>Accounting Trainee</h4>
+        <div class="org">Al-Fath Accounting &amp; Auditing Group — Egypt</div>
+        <ul>
+          <li>Recorded daily entries and prepared final accounts to standard.</li>
+          <li>Assisted in preparing budgets and profit/debt reports.</li>
+          <li>Earned an accredited experience certificate from the Egyptian Ministry of Justice &amp; Foreign Affairs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Credentials</span><h2>Certificates</h2></div>
+    <div class="sub-head reveal"><span class="kicker">Experience</span></div>
+    <div class="gallery">
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/exp-1.jpg" alt="Wahaj Boulevard Hotel certificate"></div><div class="cap">Wahaj Boulevard Hotel<small>KUWAIT</small></div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/exp-2.jpg" alt="Al-Mutairi Engineering Office certificate"></div><div class="cap">Al-Mutairi Engineering Office<small>SAUDI ARABIA</small></div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/exp-3.jpg" alt="Al-Mandaryah Contracting certificate"></div><div class="cap">Al-Mandaryah Contracting<small>SAUDI ARABIA</small></div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/exp-4.jpg" alt="Feedmix Egypt certificate"></div><div class="cap">Feedmix Egypt<small>EGYPT</small></div></div>
+    </div>
+    <div class="sub-head reveal"><span class="kicker">Academic &amp; Courses</span></div>
+    <div class="gallery">
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/exp-5.jpg" alt="IMA Financial Modeling certificate"></div><div class="cap">IMA · Financial Modeling<small>CERTIFICATE OF COMPLETION</small></div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-1.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-2.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-3.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-4.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-5.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+      <div class="cert reveal" onclick="openLb(this)"><div class="thumb"><img src="assets/certs/edu-7.jpg" alt="Certificate"></div><div class="cap">Certificate</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Background</span><h2>Education &amp; Qualifications</h2></div>
+    <div class="edu-grid">
+      <div class="panel reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></svg>Education</h3>
+        <ul>
+          <li><strong>Bachelor of Commerce — Accounting</strong><span>AIN SHAMS UNIVERSITY · 2011</span></li>
+        </ul>
+        <h3 style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Languages</h3>
+        <ul>
+          <li><strong>Arabic</strong><span>NATIVE</span></li>
+          <li><strong>English</strong><span>INTERMEDIATE · B1–B2</span></li>
+        </ul>
+      </div>
+      <div class="panel reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></svg>Courses &amp; Certifications</h3>
+        <ul>
+          <li><strong>IFRS — International Financial Reporting Standards</strong><span>IN-ATC HOUSE ACADEMY · 2023</span></li>
+          <li><strong>Provisional Professional Registration</strong><span>SOCPA — ACCOUNTING TECHNICIAN</span></li>
+          <li><strong>Diploma in Accounting</strong><span>TEXAN INTERNATIONAL ACADEMY</span></li>
+          <li><strong>Comprehensive Accounting Course</strong><span>TEXAN INTERNATIONAL ACADEMY · 2012</span></li>
+          <li><strong>ICDL — Computer Skills</strong><span>COMPUSOFT · WITH MICROSOFT</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="documents">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Downloads</span><h2>Documents</h2></div>
+    <div class="docs-grid">
+      <a class="doc-card reveal" href="assets/docs/cv.pdf" download="Yehia_Kamal_Resume.pdf" target="_blank" rel="noopener">
+        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div><div class="doc-name">Résumé (CV)</div><div class="doc-sub">PDF · FULL RESUME</div></div>
+        <span class="doc-dl"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+      </a>
+      <a class="doc-card reveal" href="assets/docs/cover-letter.pdf" download="Yehia_Kamal_Cover_Letter.pdf" target="_blank" rel="noopener">
+        <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+        <div><div class="doc-name">Cover Letter</div><div class="doc-sub">PDF · GENERAL APPLICATION</div></div>
+        <span class="doc-dl"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Get in touch</span><h2>Contact</h2></div>
+    <p class="reveal">Open to opportunities and collaborations in accounting and finance.</p>
+    <div class="reveal">
+      <div class="v">info@yehiakamal.com</div>
+      <a class="v" href="https://wa.me/966556214941" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">+966 55 621 4941 · WhatsApp</a>
+    </div>
+    <div class="socials reveal">
+      <a class="soc" href="mailto:info@yehiakamal.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+      <a class="soc" href="https://wa.me/966556214941" target="_blank" rel="noopener" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.27-.13-1.6-.79-1.84-.88-.25-.09-.43-.13-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.18-1.34-.8-.72-1.35-1.6-1.51-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.84.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.31M12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5 9.43 9.43 0 0 1 9.42-9.41c2.52 0 4.88.98 6.66 2.76a9.36 9.36 0 0 1 2.76 6.66 9.43 9.43 0 0 1-9.42 9.41M20.1 3.9A11.32 11.32 0 0 0 12.04.55C5.8.55.73 5.62.73 11.86c0 2 .52 3.95 1.51 5.67L.64 23.45l6.05-1.59a11.3 11.3 0 0 0 5.41 1.38h.01c6.24 0 11.31-5.07 11.31-11.31a11.25 11.25 0 0 0-3.32-8"/></svg></a>
+      <a class="soc" href="https://www.linkedin.com/in/yehia-kamal-834151215/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4m4 4v-2.5a1.5 1.5 0 0 0-3 0"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark">
+      <svg width="22" height="22" viewBox="0 0 200 200" fill="none" aria-hidden="true"><defs><linearGradient id="fg" x1="50" y1="22" x2="150" y2="178" gradientUnits="userSpaceOnUse"><stop stop-color="#F6E7B6"/><stop offset=".5" stop-color="#E0C684"/><stop offset="1" stop-color="#B68F42"/></linearGradient></defs><g stroke="url(#fg)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"><path d="M100 22 L162 86 L100 178 L38 86 Z"/><path d="M72 86 L100 50 L128 86"/><path d="M100 86 V178"/><path d="M100 112 L150 94"/></g></svg>
+      Yehia Kamal El-Din
+    </div>
+    <div class="fline">CHIEF ACCOUNTANT · RIYADH, SAUDI ARABIA · © <span id="year"></span></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" onclick="if(event.target.id==='lb')closeLb()">
+  <button class="close" onclick="closeLb()">&times;</button>
+  <button class="nav-btn prev" onclick="step(-1)">&#8249;</button>
+  <img id="lbImg" src="" alt="Certificate" />
+  <button class="nav-btn next" onclick="step(1)">&#8250;</button>
+</div>
+
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const imgs=Array.from(document.querySelectorAll('.cert img')).map(i=>i.getAttribute('src'));
+  let idx=0;const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  function openLb(el){idx=imgs.indexOf(el.querySelector('img').getAttribute('src'));lbImg.src=imgs[idx];lb.classList.add('open')}
+  function closeLb(){lb.classList.remove('open')}
+  function step(d){idx=(idx+d+imgs.length)%imgs.length;lbImg.src=imgs[idx]}
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+</script>
+</body>
+</html>

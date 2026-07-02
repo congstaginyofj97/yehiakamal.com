@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="cutGold" x1="50" y1="22" x2="150" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6E7B6"></stop><stop offset=".5" stop-color="#E0C684"></stop><stop offset="1" stop-color="#B68F42"></stop>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#cutGold)" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M100 22 L162 86 L100 178 L38 86 Z"></path>
+    <path d="M72 86 L100 50 L128 86"></path>
+    <path d="M100 86 V178"></path>
+    <path d="M100 112 L150 94"></path>
+  </g>
+</svg>
