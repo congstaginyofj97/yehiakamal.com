@@ -73,7 +73,11 @@
   .links{display:flex;gap:30px}
   .links a{font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s var(--ease)}
   .links a:hover{color:var(--gold)}
-  @media(max-width:880px){.links{display:none}}
+  @media(max-width:880px){
+    nav .wrap{height:auto;align-items:flex-start;gap:12px;padding-top:14px;padding-bottom:12px}
+    .links{width:100%;overflow-x:auto;gap:24px;padding-bottom:3px;scrollbar-width:thin}
+    .links a{flex:0 0 auto;white-space:nowrap}
+  }
 
   header.hero{position:relative;text-align:center;padding:104px 0 92px;overflow:hidden}
   header.hero::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(circle at 50% 40%,#11162a 0%,transparent 62%);pointer-events:none}
@@ -95,6 +99,12 @@
   section{padding:90px 0;border-top:1px solid var(--line-soft)}
   .section-head{text-align:center;margin-bottom:56px}
   .section-head h2{font-family:var(--font-display);font-weight:500;font-size:2.6rem;color:var(--text-100);margin-top:10px;letter-spacing:.4px}
+
+  .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .highlight-card{background:var(--obs-card);border:1px solid var(--line-gold);border-radius:8px;padding:22px 20px;min-height:118px;display:flex;flex-direction:column;justify-content:center;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+  .highlight-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .highlight-card strong{font-family:var(--font-display);font-size:1.35rem;font-weight:500;color:var(--text-100);line-height:1.15}
+  .highlight-card span{font-family:var(--font-mono);font-size:.68rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
 
   .about{display:grid;grid-template-columns:1.25fr 1fr;gap:54px;align-items:center}
   .about p{color:var(--text-200);margin-bottom:16px}
@@ -209,6 +219,22 @@
     </div>
   </div>
 </header>
+
+<section id="executive-highlights">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="kicker">Executive Highlights</span><h2>Executive Highlights</h2></div>
+    <div class="highlights-grid">
+      <div class="highlight-card reveal"><strong>12+ Years Experience</strong><span>Finance leadership</span></div>
+      <div class="highlight-card reveal"><strong>3 Countries</strong><span>Egypt · Saudi Arabia · Kuwait</span></div>
+      <div class="highlight-card reveal"><strong>Led Teams of up to 12 Professionals</strong><span>Accounting supervision</span></div>
+      <div class="highlight-card reveal"><strong>Annual Revenue exceeding SAR 10 Million</strong><span>Business support</span></div>
+      <div class="highlight-card reveal"><strong>ERP Systems</strong><span>Odoo · Microtec · QuickBooks</span></div>
+      <div class="highlight-card reveal"><strong>Compliance</strong><span>ZATCA · Mudad · Muqeem · Qiwa</span></div>
+      <div class="highlight-card reveal"><strong>IFRS &amp; Financial Reporting</strong><span>Standards and reporting</span></div>
+      <div class="highlight-card reveal"><strong>Cross-Cultural Leadership</strong><span>Regional experience</span></div>
+    </div>
+  </div>
+</section>
 
 <section id="about">
   <div class="wrap">
